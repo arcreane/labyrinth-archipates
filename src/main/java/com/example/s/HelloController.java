@@ -1,5 +1,6 @@
 package com.example.s;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -34,5 +35,7 @@ public class HelloController {
 
     @FXML
     private Color x4;
-    
+
+    public void stargame(ActionEvent actionEvent) {
+    }
 }
