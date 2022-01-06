@@ -1,10 +1,13 @@
 package com.example.s;
 
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
@@ -43,6 +46,14 @@ public class HelloController implements Initializable {
     @FXML
     private Color x4;
 
+    public void informationNotif(ActionEvent event) {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Are you ready ?");
+        alert.setHeaderText("Pensez-vous pouvoir en sortir ?");
+        alert.setContentText("La partie est sur le point de commencer !! Bonne chance !");
+        alert.showAndWait();
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         bouton_jouer.setOnMouseClicked(btnaction -> {
@@ -50,6 +61,4 @@ public class HelloController implements Initializable {
         });
 
     }
-
-
 }
