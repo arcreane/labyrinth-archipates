@@ -51,9 +51,9 @@ public class HelloApplication extends Application {
         while(processingNodes.size() != 0)
         {
             int targetNodeIndex = (int)(0 + (Math.random() * (processingNodes.size() - 0 + 1)));
-            Node activeNode = processingNodes.get(targetNodeIndex);
+            Node activeNode = processingNodes.get(targetNodeIndex); // TODO Erreur car processingNodes.size vaut 1 donc si target = 1 -> out of index
             processingNodes.remove(targetNodeIndex);
-            activeNode.getNeighbourNode(board, processingNodes);
+            activeNode.getNeighbourNode(board, processingNodes); // TODO erreur dans la fonction
         }
     }
     public static void main(String[] args) {

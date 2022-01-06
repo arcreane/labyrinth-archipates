@@ -42,7 +42,7 @@ public class Node {
             {
                 board.get(column-1).get(row).setColor(0);
                 processingNodes.add(board.get(column-1).get(row));
-                board.get(column).get(row).link.add(board.get(column-1).get(row).getId());
+                board.get(column).get(row).link.add(board.get(column-1).get(row).getId()); //TODO erreur : link.add vaut null
                 board.get(column-1).get(row).addLink(this.id);
             }
         }
@@ -72,7 +72,7 @@ public class Node {
             {
                 board.get(column).get(row-1).setColor(0);
                 processingNodes.add(board.get(column).get(row-1));
-                board.get(column).get(row).link.add(board.get(column).get(row-1).getId());
+                board.get(column).get(row).link.add(board.get(column).get(row-1).getId()); 
                 board.get(column).get(row-1).addLink(this.id);
             }
         }
