@@ -1,26 +1,26 @@
 package com.example.s;
 
-
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import javafx.fxml.FXMLLoader;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.SplitMenuButton;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
-import javafx.stage.Stage;
 
 public class HelloController implements Initializable {
+    @FXML
+    private HBox HboxLaby;
+
     @FXML
     private Button bouton_historique;
 
@@ -51,15 +51,11 @@ public class HelloController implements Initializable {
     @FXML
     private Color x4;
 
-    @FXML
-    private AnchorPane lab;
-
     public void informationNotif(ActionEvent event) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Are you ready ?");
         alert.setHeaderText("Pensez-vous pouvoir en sortir ?");
         alert.setContentText("La partie est sur le point de commencer !! Bonne chance !");
-        alert.showAndWait();
     }
 
     public void quitterNotif(ActionEvent event) {
@@ -80,15 +76,20 @@ public class HelloController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        bouton_jouer.setOnMouseClicked(btnaction -> {
-            windowLaby.setPrefHeight(600);
-            windowLaby.setPrefWidth(600);
-           lab.setPrefWidth(600);
-           lab.setPrefHeight(600);
-           System.out.println(windowLaby.getWidth());
-           System.out.println(lab.getWidth());
-           
+        bouton_historique.setOnMouseClicked(btnaction -> {
+            System.out.println("MEEEEEHHHHHHHHHHHHHH");
         });
 
+        bouton_jouer.setOnMouseClicked(btnaction -> {
+            windowLaby.setPrefWidth(800);
+            GridPane gridPane = new GridPane();
+            for (int i = 0; i <HelloApplication.totalColumn; i++) {
+                for (int j = 0; j < HelloApplication.totalRow; j++) {
+                    gridPane.add(board.get(i).get(j), i, j);
+                }
+            }
+            HboxLaby.getChildren().addAll(gridPane);
+        });
     }
+
 }

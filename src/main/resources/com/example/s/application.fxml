@@ -90,7 +90,7 @@
         </Menu>
       </menus>
     </MenuBar>
-    <SplitPane dividerPositions="0.2505567928730512, 0.7505567928730512" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+    <SplitPane dividerPositions="0.25111358574610243, 0.8090200445434298" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <items>
         <AnchorPane>
           <children>
@@ -133,14 +133,10 @@
                   </SplitMenuButton>
           </children>
         </AnchorPane>
-        <ScrollPane fx:id="windowLaby" prefHeight="-1.0" prefWidth="-1.0">
-          <content>
-            <AnchorPane id="Content" fx:id="lab" minHeight="-1.0" minWidth="-1.0" prefHeight="545.0" prefWidth="430.0" stylesheets="@styleLab.css">
-              <children>
-                <Label alignment="CENTER" font="$x1" layoutX="14.0" layoutY="14.0" style="&#10;" text="lab" textAlignment="CENTER" textFill="$x2" wrapText="false" />
-              </children>
-            </AnchorPane>
-          </content>
+        <ScrollPane fx:id="windowLaby" prefHeight="551.0" prefWidth="363.0">
+               <content>
+                  <HBox fx:id="HboxLaby" alignment="CENTER" prefHeight="551.0" prefWidth="494.0" />
+               </content>
         </ScrollPane>
         <AnchorPane>
           <children>
