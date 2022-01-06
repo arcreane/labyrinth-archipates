@@ -46,21 +46,7 @@ public class HelloController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         bouton_jouer.setOnMouseClicked(btnaction -> {
-            try {
-                FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(getClass().getResource("labyrinthe.fxml"));
-                /* 
-                 * if "fx:controller" is not set in fxml
-                 * fxmlLoader.setController(NewWindowController);
-                 */
-                Scene scene = new Scene(fxmlLoader.load(), 600, 400); // Dimensions selon le labyrinthe
-                Stage stage = new Stage();
-                stage.setTitle("Labyrinthe -" + " Level"); //Selon les dimensions on ajuste le lvl
-                stage.setScene(scene);
-                stage.show();
-            } catch (IOException e) {
-               System.out.println("impossible de créer une nouvelle fenêtre");
-            }
+           
         });
 
     }
