@@ -85,7 +85,7 @@ public class HelloController implements Initializable {
             GridPane gridPane = new GridPane();
             for (int i = 0; i <HelloApplication.totalColumn; i++) {
                 for (int j = 0; j < HelloApplication.totalRow; j++) {
-                    gridPane.add(board.get(i).get(j), i, j);
+                    gridPane.add(new Label("meh" + (i+j)), i, j);
                 }
             }
             HboxLaby.getChildren().addAll(gridPane);
