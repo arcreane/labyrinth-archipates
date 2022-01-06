@@ -1,15 +1,24 @@
 package com.example.s;
 
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.SplitMenuButton;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.stage.Stage;
 
-public class HelloController {
+public class HelloController implements Initializable {
     @FXML
     private Button bouton_historique;
 
@@ -43,5 +52,27 @@ public class HelloController {
         alert.setHeaderText("Pensez-vous pouvoir en sortir ?");
         alert.setContentText("La partie est sur le point de commencer !! Bonne chance !");
         alert.showAndWait();
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        bouton_jouer.setOnMouseClicked(btnaction -> {
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("labyrinthe.fxml"));
+                /*
+                 * if "fx:controller" is not set in fxml
+                 * fxmlLoader.setController(NewWindowController);
+                 */
+                Scene scene = new Scene(fxmlLoader.load(), 600, 400); // Dimensions selon le labyrinthe
+                Stage stage = new Stage();
+                stage.setTitle("Labyrinthe -" + " Level"); //Selon les dimensions on ajuste le lvl
+                stage.setScene(scene);
+                stage.show();
+            } catch (IOException e) {
+                System.out.println("impossible de créer une nouvelle fenêtre");
+            }
+        });
+
     }
 }
