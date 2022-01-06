@@ -1,6 +1,8 @@
 package com.example.s;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.SplitMenuButton;
@@ -34,5 +36,12 @@ public class HelloController {
 
     @FXML
     private Color x4;
-    
+
+    public void informationNotif(ActionEvent event) {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Are you ready ?");
+        alert.setHeaderText("Pensez-vous pouvoir en sortir ?");
+        alert.setContentText("La partie est sur le point de commencer !! Bonne chance !");
+        alert.showAndWait();
+    }
 }
