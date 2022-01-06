@@ -1,0 +1,8 @@
+#Content{
+    background-color: #db1414;
+    -fx-background-color: #db1414;
+    border-color: aqua;
+    border-width: 10px;
+    -fx-border-width: 10 10 10 10;
+    -fx-border-color: yellow;
+}

@@ -10,8 +10,6 @@ import java.util.ArrayList;
 
 import java.io.IOException;
 
-import com.example.s.Node;
-
 public class HelloApplication extends Application {
 
     public static int totalColumn, totalRow;

@@ -13,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.SplitMenuButton;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
@@ -34,6 +35,9 @@ public class HelloController implements Initializable {
 
     @FXML
     private SplitMenuButton menu_algo;
+
+    @FXML
+    private ScrollPane windowLaby;
 
     @FXML
     private Font x1;
@@ -77,8 +81,13 @@ public class HelloController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         bouton_jouer.setOnMouseClicked(btnaction -> {
-           lab.setMinWidth(600);
-           lab.setMinHeight(600);
+            windowLaby.setPrefHeight(600);
+            windowLaby.setPrefWidth(600);
+           lab.setPrefWidth(600);
+           lab.setPrefHeight(600);
+           System.out.println(windowLaby.getWidth());
+           System.out.println(lab.getWidth());
+           
         });
 
     }

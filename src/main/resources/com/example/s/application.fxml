@@ -133,9 +133,9 @@
                   </SplitMenuButton>
           </children>
         </AnchorPane>
-        <ScrollPane prefHeight="-1.0" prefWidth="-1.0">
+        <ScrollPane fx:id="windowLaby" prefHeight="-1.0" prefWidth="-1.0">
           <content>
-            <AnchorPane id="Content" fx:id="lab" minHeight="-1.0" minWidth="-1.0" prefHeight="545.0" prefWidth="430.0">
+            <AnchorPane id="Content" fx:id="lab" minHeight="-1.0" minWidth="-1.0" prefHeight="545.0" prefWidth="430.0" stylesheets="@styleLab.css">
               <children>
                 <Label alignment="CENTER" font="$x1" layoutX="14.0" layoutY="14.0" style="&#10;" text="lab" textAlignment="CENTER" textFill="$x2" wrapText="false" />
               </children>
