@@ -1,24 +1,22 @@
 package com.example.s;
 
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Timer;
+import java.util.TimerTask;
 
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.SplitMenuButton;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
-import javafx.stage.Stage;
+import javafx.scene.text.Text;
+
 
 public class HelloController implements Initializable {
     @FXML
@@ -53,6 +51,10 @@ public class HelloController implements Initializable {
 
     @FXML
     private AnchorPane lab;
+
+    @FXML private Text seconde;
+
+    @FXML private Text minute;
 
     public void informationNotif(ActionEvent event) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -89,6 +91,24 @@ public class HelloController implements Initializable {
            System.out.println(lab.getWidth());
            
         });
+        bouton_historique.setOnMouseClicked(btnAction ->{
+            Timer timer = new Timer();
+            timer.schedule(new TimerTask() {
+                int secondes = 0;
+                int minutes = 0;
+                @Override
+                public void run() {
+                    seconde.setText(String.valueOf(secondes));
+                    minute.setText(String.valueOf(minutes));
+                    secondes++;
+                    if (secondes == 60) {
+                        secondes = 0;
+                        minutes++;
+                    }
 
+                }
+
+            }, 1000, 1000);
+        });
     }
 }
