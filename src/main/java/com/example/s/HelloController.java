@@ -47,10 +47,26 @@ public class HelloController implements Initializable {
     private Color x4;
 
     public void informationNotif(ActionEvent event) {
-        Alert alert = new Alert(Alert.AlertType.WARNING);
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Are you ready ?");
         alert.setHeaderText("Pensez-vous pouvoir en sortir ?");
         alert.setContentText("La partie est sur le point de commencer !! Bonne chance !");
+        alert.showAndWait();
+    }
+
+    public void quitterNotif(ActionEvent event) {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Oh bah non.... =( ");
+        alert.setHeaderText("Vous nous quittez déja ?");
+        alert.setContentText("Vous êtes sur le point de nous quitter, êtes vous sur ?");
+        alert.showAndWait();
+    }
+
+    public void reglesNotif(ActionEvent event) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Règles du Jeu");
+        alert.setHeaderText("Voici les règles du jeu Archi-Laby");
+        alert.setContentText("A COMPLETER !!! A COMPLETER !!! A COMPLETER!!!");
         alert.showAndWait();
     }
 
