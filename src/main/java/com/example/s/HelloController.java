@@ -14,6 +14,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.SplitMenuButton;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
@@ -46,6 +47,9 @@ public class HelloController implements Initializable {
     @FXML
     private Color x4;
 
+    @FXML
+    private AnchorPane lab;
+
     public void informationNotif(ActionEvent event) {
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle("Are you ready ?");
@@ -57,7 +61,8 @@ public class HelloController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         bouton_jouer.setOnMouseClicked(btnaction -> {
-           
+           lab.setMinWidth(600);
+           lab.setMinHeight(600);
         });
 
     }
