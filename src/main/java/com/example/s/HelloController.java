@@ -87,7 +87,7 @@ public class HelloController implements Initializable {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Règles du Jeu");
         alert.setHeaderText("Voici les règles du jeu Archi-Laby");
-        alert.setContentText("A COMPLETER !!! A COMPLETER !!! A COMPLETER!!!");
+        alert.setContentText("Pour commencer à jouer, sélectionnez votre DIFFICULTE et appuyer sur le bouton JOUER. Ainsi un labyrinthe aléatoire sera généré et il vous sera possible de tracer votre chemin en survolant les cases avec le curseur de la souris. Le départ et l'arrivée seront repéré par la couleur bleue. Le temps de réalisation sera chronométré dés le départ, jusqu'au franchissement de la ligne d'arrivée. Il est possible de voir la solution en cliquant sur le bouton SOLUTION dans le menu.");
         alert.showAndWait();
     }
 
