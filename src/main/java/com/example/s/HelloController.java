@@ -3,6 +3,8 @@ package com.example.s;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javax.swing.ImageIcon;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -11,6 +13,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.SplitMenuButton;
+import javafx.scene.image.Image;
 // import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -81,11 +84,14 @@ public class HelloController implements Initializable {
         });
 
         bouton_jouer.setOnMouseClicked(btnaction -> {
+
             windowLaby.setPrefWidth(800);
             GridPane gridPane = new GridPane();
+            Image image = new Image("File:image/myfile.jpg")
+
             for (int i = 0; i <HelloApplication.totalColumn; i++) {
                 for (int j = 0; j < HelloApplication.totalRow; j++) {
-                    gridPane.add(new Label("meh" + (i+j)), i, j); //TODO Remplacer le label par les Nodes =)
+                    gridPane.add(HelloApplication.getBoard().get(i).get(j),i,j); //TODO Remplacer le label par les Nodes =)
                 }
             }
             HboxLaby.getChildren().addAll(gridPane);
