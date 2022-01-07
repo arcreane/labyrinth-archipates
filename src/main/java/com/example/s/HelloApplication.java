@@ -105,9 +105,6 @@ public class HelloApplication extends Application {
     public static void main(String[] args) {
         totalColumn = 30;
         totalRow = 30;
-        startRow = (int)(0 + (Math.random() * ((totalRow - 1) - 0 + 1)));
-        endRow = (int)(0 + (Math.random() * ((totalRow - 1) - 0 + 1)));
-        mazeGeneration(board);
         launch();
     }
 }
