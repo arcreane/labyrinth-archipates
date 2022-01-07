@@ -210,6 +210,9 @@ public class HelloController implements Initializable {
             int xPos = (int) (x / widthCol);
             int yPos = (int) (y / widthCol);
 
+            Image image = new Image("File:ressources/image/carre.png");
+            gridPane.add(new ImageView(image), xPos, yPos);
+
             System.out.println("value of xPOS : " + xPos + " value of yPOS : " + yPos);
         });
 
