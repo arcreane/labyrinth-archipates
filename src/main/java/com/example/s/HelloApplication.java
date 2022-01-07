@@ -12,6 +12,8 @@ import java.io.IOException;
 public class HelloApplication extends Application {
 
     public static int totalColumn, totalRow;
+    static ArrayList<ArrayList<Node>> board = new ArrayList<>();
+
     
     @Override
     public void start(Stage stage) throws IOException {
@@ -20,6 +22,11 @@ public class HelloApplication extends Application {
         stage.setTitle("Hello!");
         stage.setScene(scene);
         stage.show();
+    }
+
+   
+    public static ArrayList<ArrayList<Node>> getBoard() {
+        return board;
     }
 
     public static void mazeGeneration(ArrayList<ArrayList<Node>> board)
@@ -58,7 +65,6 @@ public class HelloApplication extends Application {
     public static void main(String[] args) {
         totalColumn = 25;
         totalRow = 25;
-        ArrayList<ArrayList<Node>> board = new ArrayList<>();
         mazeGeneration(board);
         launch();
     }
