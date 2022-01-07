@@ -144,6 +144,7 @@
                         <Font name="System Italic" size="12.0" />
                      </font>
                   </SplitMenuButton>
+                  <Label fx:id="notif" layoutX="39.0" layoutY="390.0" text="LE JEU VA COMMENCER" textFill="#ab2323" visible="false" />
           </children>
         </AnchorPane>
         <ScrollPane fx:id="windowLaby" prefHeight="551.0" prefWidth="363.0">
