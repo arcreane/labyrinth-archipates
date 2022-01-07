@@ -91,7 +91,7 @@ public class HelloController implements Initializable {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Règles du Jeu");
         alert.setHeaderText("Voici les règles du jeu Archi-Laby");
-        alert.setContentText("A COMPLETER !!! A COMPLETER !!! A COMPLETER!!!");
+        alert.setContentText("Pour commencer à jouer, sélectionnez votre DIFFICULTE et appuyer sur le bouton JOUER. Ainsi un labyrinthe aléatoire sera généré et il vous sera possible de tracer votre chemin en survolant les cases avec le curseur de la souris. Le départ et l'arrivée seront repéré par la couleur bleue. Le temps de réalisation sera chronométré dés le départ, jusqu'au franchissement de la ligne d'arrivée. Il est possible de voir la solution en cliquant sur le bouton SOLUTION dans le menu.");
         alert.showAndWait();
     }
 
@@ -101,7 +101,12 @@ public class HelloController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         bouton_jouer.setOnMouseClicked(btnaction -> {
-            // HboxLaby.getChildren().removeAll(gridPane);
+            HboxLaby.getChildren().removeAll(gridPane);
+            HelloApplication.board.clear();
+            HelloApplication.startRow = (int)(0 + (Math.random() * ((HelloApplication.totalRow - 1) - 0 + 1)));
+            HelloApplication.endRow = (int)(0 + (Math.random() * ((HelloApplication.totalRow - 1) - 0 + 1))); 
+            HelloApplication.mazeGeneration(HelloApplication.board);
+            gridPane.getChildren().removeAll(gridPane.getChildren());
             windowLaby.setPrefWidth(800);
             boolean up, down, left, right;
             int iteration = 99999;
@@ -199,7 +204,7 @@ public class HelloController implements Initializable {
             int xPos = (int) (x / widthCol);
             int yPos = (int) (y / widthCol);
 
-            System.out.println("value of xPOS : " + xPos + " value of yPOS : " + yPos);
+            // System.out.println("value of xPOS : " + xPos + " value of yPOS : " + yPos);
 
             Node node = HelloApplication.board.get(xPos).get(yPos);
             up = node.isLinkedUp(HelloApplication.board, xPos, yPos);
