@@ -43,10 +43,10 @@ public class HelloApplication extends Application {
             board.add(temp);
         }
 
-        int nbrAlea = (int)(0 + (Math.random() * ((totalColumn * totalRow) - 0 + 1))); // nombre aléatoire entre 0 et le nombre de de noeuds sur le plateau
+        int randId = (int)(0 + (Math.random() * ((totalColumn * totalRow) - 0 + 1))); // nombre aléatoire entre 0 et le nombre de de noeuds sur le plateau
 
-        int nodeColumn = nbrAlea % totalColumn;
-        int nodeRow = nbrAlea / totalRow;
+        int nodeColumn = randId % totalColumn;
+        int nodeRow = randId / totalColumn;
 
         board.get(nodeColumn).get(nodeRow).setColor(0);
 
