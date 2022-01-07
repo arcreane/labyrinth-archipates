@@ -47,9 +47,9 @@ public class Node {
         lastNode = newNode;
     }
 
-    void getLink(ArrayList<Integer> array)
+    ArrayList<Integer> getLink()
     {
-        array = link;
+        return link;
     }
 
     void addLink(int nodeId)
