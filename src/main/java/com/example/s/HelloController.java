@@ -190,10 +190,12 @@ public class HelloController implements Initializable {
              * }
              */
             HboxLaby.getChildren().addAll(gridPane);
-            notif.setVisible(false);
+            
+           
         });
 
         gridPane.addEventHandler(MouseEvent.MOUSE_DRAGGED, evt -> {
+            notif.setVisible(false); // Désactive le label de notification après que l'on commence
             boolean up, down, left, right;
             double x = evt.getX();
             double y = evt.getY();
