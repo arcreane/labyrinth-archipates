@@ -103,8 +103,8 @@ public class HelloApplication extends Application {
     }
     
     public static void main(String[] args) {
-        totalColumn = 30;
-        totalRow = 30;
+        totalColumn = 30; // Colonne de notre labyrinthe & grille
+        totalRow = 30;  // Ligne de notre labyrinthe & grille
         launch();
     }
 }

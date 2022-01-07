@@ -100,8 +100,8 @@ public class HelloController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        bouton_jouer.setOnMouseClicked(btnaction -> {
-            HboxLaby.getChildren().removeAll(gridPane);
+        bouton_jouer.setOnMouseClicked(btnaction -> { // bouton pour start la génération du labyrinthe 
+            HboxLaby.getChildren().removeAll(gridPane); 
             HelloApplication.board.clear();
             HelloApplication.startRow = (int)(0 + (Math.random() * ((HelloApplication.totalRow - 1) - 0 + 1)));
             HelloApplication.endRow = (int)(0 + (Math.random() * ((HelloApplication.totalRow - 1) - 0 + 1))); 
@@ -170,7 +170,7 @@ public class HelloController implements Initializable {
                         image = new Image("File:ressources/image/carre.png"); // pas d'intersection
                     }
 
-                    gridPane.add(new ImageView(image), column, row);
+                    gridPane.add(new ImageView(image), column, row); // Ajout de nos images dans la grille
                     iteration++;
                     if (iteration == 1) {
                         willBreak = true;
@@ -180,21 +180,12 @@ public class HelloController implements Initializable {
                 if (willBreak)
                     break;
             }
-            /*
-             * Image image = new Image("File:ressources/image/carre.png");
-             * 
-             * for (int i = 0; i < HelloApplication.totalColumn; i++) {
-             * for (int j = 0; j < HelloApplication.totalRow; j++) {
-             * gridPane.add(new ImageView(image), i, j);
-             * }
-             * }
-             */
             HboxLaby.getChildren().addAll(gridPane);
             
            
         });
 
-        gridPane.addEventHandler(MouseEvent.MOUSE_DRAGGED, evt -> {
+        gridPane.addEventHandler(MouseEvent.MOUSE_DRAGGED, evt -> { //Event pour tracer le chemin
             notif.setVisible(false); // Désactive le label de notification après que l'on commence
             boolean up, down, left, right;
             double x = evt.getX();
@@ -205,8 +196,6 @@ public class HelloController implements Initializable {
 
             int xPos = (int) (x / widthCol);
             int yPos = (int) (y / widthCol);
-
-            // System.out.println("value of xPOS : " + xPos + " value of yPOS : " + yPos);
 
             Node node = HelloApplication.board.get(xPos).get(yPos);
             up = node.isLinkedUp(HelloApplication.board, xPos, yPos);
@@ -262,7 +251,7 @@ public class HelloController implements Initializable {
             gridPane.add(new ImageView(image), xPos, yPos);
         });
 
-        bouton_historique.setOnMouseClicked(btnAction -> {
+        bouton_historique.setOnMouseClicked(btnAction -> { //bouton historique
             Timer timer = new Timer();
             timer.schedule(new TimerTask() {
                 int secondes = 0;
