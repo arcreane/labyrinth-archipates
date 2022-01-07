@@ -230,7 +230,6 @@ public class HelloController implements Initializable {
                         minutes++;
                     }
                 }
-
             }, 1000, 1000);
         });
     }
