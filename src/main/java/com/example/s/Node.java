@@ -114,5 +114,5 @@ public class Node {
     }
 
     private int column, row, id, color;
-    List<Integer> link;
+    private ArrayList<Integer> link = new ArrayList<>();
 }
