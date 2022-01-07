@@ -102,8 +102,8 @@ public class HelloApplication extends Application {
     }
     
     public static void main(String[] args) {
-        totalColumn = 10;
-        totalRow = 10;
+        totalColumn = 30;
+        totalRow = 30;
         mazeGeneration(board);
         // ArrayList<Node> itineraire = new ArrayList<>();
         // pathFinding(board, 0, 0, 9, 9, itineraire);

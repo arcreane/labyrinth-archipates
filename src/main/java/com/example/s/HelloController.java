@@ -93,11 +93,12 @@ public class HelloController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
         bouton_jouer.setOnMouseClicked(btnaction -> {
-            HboxLaby.getChildren().removeAll(gridPane);
+            // HboxLaby.getChildren().removeAll(gridPane);
             windowLaby.setPrefWidth(800);
             boolean up, down, left, right;
+            int iteration = 99999;
+            boolean willBreak = false;
             for(int column=0; column < HelloApplication.totalColumn; column++)
             {
                 for(int row=0; row < HelloApplication.totalRow; row++)
@@ -140,19 +141,19 @@ public class HelloController implements Initializable {
                         image = new Image("File:ressources/image/carre_up_left.png"); // coude -> bas a droite
                     }
 
-                    else if(up && !down && !right && left)
+                    else if(!up && !down && right && !left)
                     {
                         image = new Image("File:ressources/image/carre_right.png"); // fin droite
                     }
-                    else if(up && !down && !right && left)
+                    else if(!up && !down && !right && left)
                     {
                         image = new Image("File:ressources/image/carre_left.png"); // fin gauche
                     }
-                    else if(up && !down && !right && left)
+                    else if(up && !down && !right && !left)
                     {
                         image = new Image("File:ressources/image/carre_up.png"); // fin haut
                     }
-                    else if(up && !down && !right && left)
+                    else if(!up && down && !right && !left)
                     {
                         image = new Image("File:ressources/image/carre_down.png"); // fin bas
                     }
@@ -180,7 +181,14 @@ public class HelloController implements Initializable {
                     }
 
                     gridPane.add(new ImageView(image), column, row);
+                    iteration ++;
+                    if(iteration == 1)
+                    {
+                        willBreak = true;
+                        break;
+                    }
                 }
+                if(willBreak) break;
             }
          /*    Image image = new Image("File:ressources/image/carre.png");
 
@@ -203,8 +211,6 @@ public class HelloController implements Initializable {
             int yPos = (int) (y / widthCol);
 
             System.out.println("value of xPOS : " + xPos + " value of yPOS : " + yPos);
-          
-
         });
 
         bouton_historique.setOnMouseClicked(btnAction -> {
