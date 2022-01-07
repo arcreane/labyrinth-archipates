@@ -13,7 +13,8 @@ import java.io.IOException;
 public class HelloApplication extends Application {
 
     public static int totalColumn, totalRow;
-    static ArrayList<ArrayList<Node>> board = new ArrayList<>();
+    public static int startRow, endRow;
+    public static ArrayList<ArrayList<Node>> board = new ArrayList<>();
 
     
     @Override
@@ -23,11 +24,6 @@ public class HelloApplication extends Application {
         stage.setTitle("Hello!");
         stage.setScene(scene);
         stage.show();
-    }
-
-   
-    public static ArrayList<ArrayList<Node>> getBoard() {
-        return board;
     }
 
     public static void pathFinding(ArrayList<ArrayList<Node>> board, int startColumn, int startRow, int endColumn, int endRow, ArrayList<Node> itineraire)
@@ -107,11 +103,11 @@ public class HelloApplication extends Application {
     }
     
     public static void main(String[] args) {
-        totalColumn = 25;
-        totalRow = 25;
+        totalColumn = 30;
+        totalRow = 30;
+        startRow = (int)(0 + (Math.random() * ((totalRow - 1) - 0 + 1)));
+        endRow = (int)(0 + (Math.random() * ((totalRow - 1) - 0 + 1)));
         mazeGeneration(board);
-        ArrayList<Node> itineraire = new ArrayList<>();
-        pathFinding(board, 0, 0, 9, 9, itineraire);
         launch();
     }
 }

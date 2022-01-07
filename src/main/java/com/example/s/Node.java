@@ -112,7 +112,7 @@ public class Node {
         return false;
     }
 
-    boolean isLinkedDown(List<List<Node>> board)
+    boolean isLinkedDown(ArrayList<ArrayList<Node>> board, int column, int row)
     {
         if(row != board.get(column).size() - 1)
         {
@@ -125,11 +125,37 @@ public class Node {
         }
     }
 
-    boolean isLinkedRight(List<List<Node>> board)
+    boolean isLinkedUp(ArrayList<ArrayList<Node>> board, int column, int row)
+    {
+        if(row != 0)
+        {
+            if(isElementPresentInLink(board.get(column).get(row-1).getId())) return true;
+            else return false;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    boolean isLinkedRight(ArrayList<ArrayList<Node>> board, int column, int row)
     {
         if(column != board.size() - 1)
         {
             if(isElementPresentInLink(board.get(column+1).get(row).getId())) return true;
+            else return false;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    boolean isLinkedLeft(ArrayList<ArrayList<Node>> board, int column, int row)
+    {
+        if(column != 0)
+        {
+            if(isElementPresentInLink(board.get(column-1).get(row).getId())) return true;
             else return false;
         }
         else
