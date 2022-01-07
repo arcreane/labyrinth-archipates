@@ -11,6 +11,7 @@ import java.util.TimerTask;
 import java.util.ArrayList;
 
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.SplitMenuButton;
 import javafx.scene.image.Image;
@@ -68,6 +69,9 @@ public class HelloController implements Initializable {
     @FXML
     private SplitMenuButton bouton_difficulte;
 
+    @FXML
+    private Label notif;
+
     public void informationNotif(ActionEvent event) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Are you ready ?");
@@ -101,6 +105,7 @@ public class HelloController implements Initializable {
             windowLaby.setPrefWidth(800);
             boolean up, down, left, right;
             int iteration = 99999;
+            notif.setVisible(true);
             String text;
             boolean willBreak = false;
             for (int column = 0; column < HelloApplication.totalColumn; column++) {
@@ -180,6 +185,7 @@ public class HelloController implements Initializable {
              * }
              */
             HboxLaby.getChildren().addAll(gridPane);
+            notif.setVisible(false);
         });
 
         gridPane.addEventHandler(MouseEvent.MOUSE_DRAGGED, evt -> {
