@@ -182,7 +182,7 @@ public class HelloController implements Initializable {
             HboxLaby.getChildren().addAll(gridPane);
         });
 
-        gridPane.addEventHandler(MouseEvent.MOUSE_ENTERED_TARGET, evt -> {
+        gridPane.addEventHandler(MouseEvent.MOUSE_DRAGGED, evt -> {
             boolean up, down, left, right;
             double x = evt.getX();
             double y = evt.getY();
