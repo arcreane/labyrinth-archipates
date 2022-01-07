@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.ArrayList;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
@@ -93,6 +94,7 @@ public class HelloController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
         bouton_jouer.setOnMouseClicked(btnaction -> {
             // HboxLaby.getChildren().removeAll(gridPane);
             windowLaby.setPrefWidth(800);
@@ -230,7 +232,97 @@ public class HelloController implements Initializable {
                         minutes++;
                     }
                 }
-            }, 1000, 1000);
+                }, 1000, 1000);
         });
-    }
+
+        bouton_solution.setOnMouseClicked(btnAction -> {
+            ArrayList<Node> itineraire = new ArrayList<>();
+            HelloApplication.pathFinding(HelloApplication.board, 0, 0, HelloApplication.totalColumn-1, HelloApplication.totalRow-1, itineraire);
+            boolean up, down, left, right;
+            int column, row;
+            Image image;
+            for(Node node : itineraire)
+            {
+                column = node.getColumn();
+                row = node.getRow();
+                up = node.isLinkedUp(HelloApplication.board, column, row);
+                down = node.isLinkedDown(HelloApplication.board, column, row);
+                left = node.isLinkedLeft(HelloApplication.board, column, row);
+                right = node.isLinkedRight(HelloApplication.board, column, row);
+
+                if(up && down && right && left)
+                {
+                    image = new Image("File:ressources/image/good/carre_all.png"); // 4 intersection
+                }
+                
+                else if(!up && !down && right && left)
+                {
+                    image = new Image("File:ressources/image/good/carre_horizontal_pass.png"); // intersection horizontale
+                }
+                else if(up && down && !right && !left)
+                {
+                    image = new Image("File:ressources/image/good/carre_vertical_pass.png"); // intersection verticale
+                }
+                
+                else if(!up && down && right && !left)
+                {
+                    image = new Image("File:ressources/image/good/carre_down_right.png"); // coude -> haut a gauche
+                }
+                else if(!up && down && !right && left)
+                {
+                    image = new Image("File:ressources/image/good/carre_left_down.png"); // coude -> haut a droite
+                }
+                else if(up && !down && right && !left)
+                {
+                    image = new Image("File:ressources/image/good/carre_right_up.png"); // coude -> bas a gauche
+                }
+                else if(up && !down && !right && left)
+                {
+                    image = new Image("File:ressources/image/good/carre_up_left.png"); // coude -> bas a droite
+                }
+
+                else if(!up && !down && right && !left)
+                {
+                    image = new Image("File:ressources/image/good/carre_right.png"); // fin droite
+                }
+                else if(!up && !down && !right && left)
+                {
+                    image = new Image("File:ressources/image/good/carre_left.png"); // fin gauche
+                }
+                else if(up && !down && !right && !left)
+                {
+                    image = new Image("File:ressources/image/good/carre_up.png"); // fin haut
+                }
+                else if(!up && down && !right && !left)
+                {
+                    image = new Image("File:ressources/image/good/carre_down.png"); // fin bas
+                }
+
+                else if(down && right && left && !up)
+                {
+                    image = new Image("File:ressources/image/good/carre_right_left_down.png"); // 3 branches -> bas
+                }
+                else if(up && right && left && !down)
+                {
+                    image = new Image("File:ressources/image/good/carre_right_up_left.png"); // 3 branches -> haut
+                }
+                else if(up && down && left && !right)
+                {
+                    image = new Image("File:ressources/image/good/carre_up_left_down.png"); // 3 branches -> gauche
+                }
+                else if(up && down && right && !left)
+                {
+                    image = new Image("File:ressources/image/good/carre_down_right_up.png"); // 3 branches -> droite
+                }
+
+                else
+                {
+                    image = new Image("File:ressources/image/good/carre.png"); // pas d'intersection
+                }
+
+                gridPane.add(new ImageView(image), column, row);
+            }
+        });
+    };
+
 }

@@ -105,8 +105,6 @@ public class HelloApplication extends Application {
         totalColumn = 30;
         totalRow = 30;
         mazeGeneration(board);
-        // ArrayList<Node> itineraire = new ArrayList<>();
-        // pathFinding(board, 0, 0, 9, 9, itineraire);
         launch();
     }
 }
