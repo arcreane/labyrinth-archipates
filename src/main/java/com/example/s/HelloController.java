@@ -101,6 +101,7 @@ public class HelloController implements Initializable {
             windowLaby.setPrefWidth(800);
             boolean up, down, left, right;
             int iteration = 99999;
+            String text;
             boolean willBreak = false;
             for (int column = 0; column < HelloApplication.totalColumn; column++) {
                 for (int row = 0; row < HelloApplication.totalRow; row++) {
@@ -109,47 +110,50 @@ public class HelloController implements Initializable {
                     down = node.isLinkedDown(HelloApplication.board, column, row);
                     left = node.isLinkedLeft(HelloApplication.board, column, row);
                     right = node.isLinkedRight(HelloApplication.board, column, row);
+                    
+                    if((column == 0 && row == HelloApplication.startRow) || (column == HelloApplication.totalColumn-1 && row == HelloApplication.endRow)) text = "image/start-end";
+                    else text = "image";
 
                     Image image;
                     if (up && down && right && left) {
-                        image = new Image("File:ressources/image/carre_all.png"); // 4 intersection
+                        image = new Image("File:ressources/"+text+"/carre_all.png"); // 4 intersection
                     }
 
                     else if (!up && !down && right && left) {
-                        image = new Image("File:ressources/image/carre_horizontal_pass.png"); // intersection
+                        image = new Image("File:ressources/"+text+"/carre_horizontal_pass.png"); // intersection
                                                                                               // horizontale
                     } else if (up && down && !right && !left) {
-                        image = new Image("File:ressources/image/carre_vertical_pass.png"); // intersection verticale
+                        image = new Image("File:ressources/"+text+"/carre_vertical_pass.png"); // intersection verticale
                     }
 
                     else if (!up && down && right && !left) {
-                        image = new Image("File:ressources/image/carre_down_right.png"); // coude -> haut a gauche
+                        image = new Image("File:ressources/"+text+"/carre_down_right.png"); // coude -> haut a gauche
                     } else if (!up && down && !right && left) {
-                        image = new Image("File:ressources/image/carre_left_down.png"); // coude -> haut a droite
+                        image = new Image("File:ressources/"+text+"/carre_left_down.png"); // coude -> haut a droite
                     } else if (up && !down && right && !left) {
-                        image = new Image("File:ressources/image/carre_right_up.png"); // coude -> bas a gauche
+                        image = new Image("File:ressources/"+text+"/carre_right_up.png"); // coude -> bas a gauche
                     } else if (up && !down && !right && left) {
-                        image = new Image("File:ressources/image/carre_up_left.png"); // coude -> bas a droite
+                        image = new Image("File:ressources/"+text+"/carre_up_left.png"); // coude -> bas a droite
                     }
 
                     else if (!up && !down && right && !left) {
-                        image = new Image("File:ressources/image/carre_right.png"); // fin droite
+                        image = new Image("File:ressources/"+text+"/carre_right.png"); // fin droite
                     } else if (!up && !down && !right && left) {
-                        image = new Image("File:ressources/image/carre_left.png"); // fin gauche
+                        image = new Image("File:ressources/"+text+"/carre_left.png"); // fin gauche
                     } else if (up && !down && !right && !left) {
-                        image = new Image("File:ressources/image/carre_up.png"); // fin haut
+                        image = new Image("File:ressources/"+text+"/carre_up.png"); // fin haut
                     } else if (!up && down && !right && !left) {
-                        image = new Image("File:ressources/image/carre_down.png"); // fin bas
+                        image = new Image("File:ressources/"+text+"/carre_down.png"); // fin bas
                     }
 
                     else if (down && right && left && !up) {
-                        image = new Image("File:ressources/image/carre_right_left_down.png"); // 3 branches -> bas
+                        image = new Image("File:ressources/"+text+"/carre_right_left_down.png"); // 3 branches -> bas
                     } else if (up && right && left && !down) {
-                        image = new Image("File:ressources/image/carre_right_up_left.png"); // 3 branches -> haut
+                        image = new Image("File:ressources/"+text+"/carre_right_up_left.png"); // 3 branches -> haut
                     } else if (up && down && left && !right) {
-                        image = new Image("File:ressources/image/carre_up_left_down.png"); // 3 branches -> gauche
+                        image = new Image("File:ressources/"+text+"/carre_up_left_down.png"); // 3 branches -> gauche
                     } else if (up && down && right && !left) {
-                        image = new Image("File:ressources/image/carre_down_right_up.png"); // 3 branches -> droite
+                        image = new Image("File:ressources/"+text+"/carre_down_right_up.png"); // 3 branches -> droite
                     }
 
                     else {
@@ -266,8 +270,7 @@ public class HelloController implements Initializable {
 
         bouton_solution.setOnMouseClicked(btnAction -> {
             ArrayList<Node> itineraire = new ArrayList<>();
-            HelloApplication.pathFinding(HelloApplication.board, 0, 0, HelloApplication.totalColumn - 1,
-                    HelloApplication.totalRow - 1, itineraire);
+            HelloApplication.pathFinding(HelloApplication.board, 0, HelloApplication.startRow, HelloApplication.totalColumn - 1, HelloApplication.endRow, itineraire);
             boolean up, down, left, right;
             int column, row;
             Image image;
