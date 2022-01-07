@@ -91,42 +91,54 @@
         </Menu>
       </menus>
     </MenuBar>
-    <SplitPane dividerPositions="0.25111358574610243, 0.8090200445434298" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+    <SplitPane dividerPositions="0.24387527839643652, 0.8697104677060133" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <items>
         <AnchorPane>
           <children>
-            <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" minWidth="60.0" prefWidth="-1.0" style="&#10;" text="menu" textAlignment="CENTER" wrapText="false">
+            <Label alignment="CENTER" layoutY="14.0" minWidth="60.0" prefHeight="27.0" prefWidth="220.0" style="&#10;" text="MENU" textFill="#068d2c" wrapText="false">
               <font>
-                <Font size="18.0" fx:id="x1" />
+                <Font name="System Bold" size="18.0" fx:id="x1" />
               </font>
-              <textFill>
-                <Color red="0.624" green="0.624" blue="0.624" fx:id="x2" />
-              </textFill>
             </Label>
-                  <Button fx:id="bouton_jouer" layoutX="61.0" layoutY="201.0" mnemonicParsing="false" onAction="#informationNotif" prefHeight="25.0" prefWidth="100.0" text="JOUER" textAlignment="CENTER" textFill="#068d2c">
+                  <Button fx:id="bouton_jouer" layoutX="61.0" layoutY="176.0" mnemonicParsing="false" onAction="#informationNotif" prefHeight="25.0" prefWidth="115.0" text="JOUER" textAlignment="CENTER" textFill="#068d2c">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <Button fx:id="bouton_regles" layoutX="61.0" layoutY="226.0" mnemonicParsing="false" onAction="#reglesNotif" prefHeight="25.0" prefWidth="100.0" text="REGLES" textAlignment="CENTER" textFill="#068d2c">
+                  <Button fx:id="bouton_regles" layoutX="61.0" layoutY="226.0" mnemonicParsing="false" onAction="#reglesNotif" prefHeight="25.0" prefWidth="115.0" text="REGLES" textAlignment="CENTER" textFill="#068d2c">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <Button fx:id="bouton_historique" layoutX="61.0" layoutY="251.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="HISTORIQUE" textAlignment="CENTER" textFill="#068d2c">
+                  <Button fx:id="bouton_historique" layoutX="61.0" layoutY="251.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="115.0" text="HISTORIQUE" textAlignment="CENTER" textFill="#068d2c">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <Button fx:id="bouton_quitter" layoutX="61.0" layoutY="301.0" mnemonicParsing="false" onAction="#quitterNotif" prefHeight="25.0" prefWidth="100.0" text="QUITTER" textAlignment="CENTER" textFill="#068d2c">
+                  <Button fx:id="bouton_quitter" layoutX="61.0" layoutY="326.0" mnemonicParsing="false" onAction="#quitterNotif" prefHeight="25.0" prefWidth="115.0" text="QUITTER" textAlignment="CENTER" textFill="#068d2c">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <SplitMenuButton fx:id="menu_algo" layoutX="61.0" layoutY="276.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Algo ?" textAlignment="CENTER" textFill="#068d2c">
+                  <SplitMenuButton fx:id="menu_algo" layoutX="61.0" layoutY="276.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="115.0" text="Algo ?" textAlignment="CENTER" textFill="#068d2c">
                     <items>
                       <MenuItem mnemonicParsing="false" text="Growing Tree" />
                       <MenuItem mnemonicParsing="false" text="Deuxième" />
+                    </items>
+                     <font>
+                        <Font name="System Italic" size="12.0" />
+                     </font>
+                  </SplitMenuButton>
+                  <Button fx:id="bouton_solution" layoutX="61.0" layoutY="301.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="115.0" text="SOLUTION" textFill="#068d2c">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <SplitMenuButton fx:id="bouton_difficulte" layoutX="61.0" layoutY="201.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="115.0" text="Difficulté ?" textFill="#068d2c">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Facile" />
+                      <MenuItem mnemonicParsing="false" text="Moyen" />
+                        <MenuItem mnemonicParsing="false" text="Difficile" />
                     </items>
                      <font>
                         <Font name="System Italic" size="12.0" />
@@ -141,7 +153,10 @@
         </ScrollPane>
         <AnchorPane>
           <children>
-            <Label alignment="CENTER" font="$x1" layoutX="14.0" layoutY="14.0" style="&#10;" text="chrono" textAlignment="CENTER" textFill="$x2" wrapText="false" />
+            <Label alignment="CENTER" layoutX="-1.0" layoutY="14.0" prefHeight="27.0" prefWidth="115.0" style="&#10;" text="TEMPS" textAlignment="CENTER" textFill="#068d2c" wrapText="false">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font></Label>
                   <Text fx:id="minute" layoutX="42.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00" wrappingWidth="16.767578125" />
                   <Text fx:id="seconde" layoutX="67.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00" wrappingWidth="16.767578125" />
                   <Text layoutX="60.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text=":" />

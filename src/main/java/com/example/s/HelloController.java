@@ -60,6 +60,12 @@ public class HelloController implements Initializable {
 
     @FXML private Text minute;
 
+    @FXML
+    private Button bouton_solution;
+
+    @FXML
+    private SplitMenuButton bouton_difficulte;
+
     public void informationNotif(ActionEvent event) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Are you ready ?");
