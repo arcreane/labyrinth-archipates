@@ -7,12 +7,12 @@ import javafx.stage.Stage;
 
 import java.util.List;
 import java.util.ArrayList;
-
 import java.io.IOException;
 
 public class HelloApplication extends Application {
 
     public static int totalColumn, totalRow;
+    
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("application.fxml"));
@@ -22,10 +22,8 @@ public class HelloApplication extends Application {
         stage.show();
     }
 
-    public static void mazeGeneration()
+    public static void mazeGeneration(ArrayList<ArrayList<Node>> board)
     {
-        ArrayList<ArrayList<Node>> board = new ArrayList<>();
-
         int nodeId = 0;
         for(int i = 0; i < totalColumn; i++)
         {
@@ -50,15 +48,18 @@ public class HelloApplication extends Application {
 
         while(processingNodes.size() != 0)
         {
-            int targetNodeIndex = (int)(0 + (Math.random() * (processingNodes.size() - 0 + 1)));
+            int targetNodeIndex = (int)(0 + (Math.random() * ((processingNodes.size() - 1) - 0 + 1)));
             Node activeNode = processingNodes.get(targetNodeIndex); // TODO Erreur car processingNodes.size vaut 1 donc si target = 1 -> out of index
             processingNodes.remove(targetNodeIndex);
             activeNode.getNeighbourNode(board, processingNodes); // TODO erreur dans la fonction
         }
     }
+    
     public static void main(String[] args) {
         totalColumn = 25;
         totalRow = 25;
+        ArrayList<ArrayList<Node>> board = new ArrayList<>();
+        mazeGeneration(board);
         launch();
     }
 }
