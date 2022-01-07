@@ -22,9 +22,34 @@ public class Node {
         return color;
     }
 
+    int getColumn()
+    {
+        return column;
+    }
+
+    int getRow()
+    {
+        return row;
+    }
+
+    Node getLastNode()
+    {
+        return lastNode;
+    }
+
     void setColor(int newColor)
     {
         color = newColor;
+    }
+
+    void setLastNode(Node newNode)
+    {
+        lastNode = newNode;
+    }
+
+    void getLink(ArrayList<Integer> array)
+    {
+        array = link;
     }
 
     void addLink(int nodeId)
@@ -33,7 +58,7 @@ public class Node {
     }
 
 
-    void getNeighbourNode(ArrayList<ArrayList<Node>> board, List<Node> processingNodes)
+    void generateLink(ArrayList<ArrayList<Node>> board, List<Node> processingNodes)
     {
         board.get(column).get(row).setColor(1);
         if(column -1 >= 0) // Sud
@@ -115,4 +140,5 @@ public class Node {
 
     private int column, row, id, color;
     private ArrayList<Integer> link = new ArrayList<>();
+    Node lastNode;
 }
